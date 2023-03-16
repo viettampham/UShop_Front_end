@@ -31,6 +31,7 @@
     </table>
     <p class="text float-right totalbill">Tổng tiền : {{data.displayTotalBill}}</p>
     <p class="text">Địa chỉ giao hàng : {{data.addressTranfer}}</p>
+    <p class="text">Địa chỉ cụ thể: {{data.addressDetail}}</p>
     <p class="text">Người nhận : {{data.nameCustomer}}</p>
     <p class="text">Số điện thoại : {{data.phoneNumber}}</p>
     <button *ngIf="!ispayed" class="btn-confirm" (click)="ConfirmBill(data.billID)">Xác minh nhận hàng</button>

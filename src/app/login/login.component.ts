@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
   public decodeToken = (rawToken: string) => this.jwtHelperService?.decodeToken(rawToken);
 
   Signin() {
-    if (this.SigninForm.value.username?.includes("@gmail.com")){
+    if (!this.SigninForm.value.username?.includes("@gmail.com")){
       alert("UserName phải có @gmail.com")
       return
     }
