@@ -1,0 +1,29 @@
+<mat-dialog-content class="mat-typography">
+  <div class="dialog">
+    <div class="img-dialog-product">
+      <img class="img-product" src="{{product.imageURL}}" alt="">
+    </div>
+    <div class="info-dialog-product">
+      <p class="product-name">{{product.name}}</p>
+      <p class="product-descript">{{product.description}}</p>
+      <p class="brand">Brand: {{product.brand}}</p>
+      <p class="brand">Size: {{product.size}}</p>
+      <p class="brand">Size: {{product.size}}</p>
+      <p class="price">Price: {{product.displayPrice}}</p>
+      <p class="price">Available: {{product.quantityAvailable}}</p>
+      <span class="">
+        <span class="text-base">Số lượng:</span>
+        <span class="add-quantity">
+          <button class="btn-change-quantity minus">-</button>
+          <span class="display-quantity num">1</span>
+          <button class="btn-change-quantity plus">+</button>
+        </span>
+      </span>
+      <div class="flex mt-8">
+        <button class="add-in-quantity" (click)="createOrder(product.productID)">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+  <button class="closeDialog" (click)="closeDialog()"><i class="fa-solid fa-xmark"></i></button>
+</mat-dialog-content>
+

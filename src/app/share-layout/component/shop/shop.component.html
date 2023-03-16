@@ -1,0 +1,56 @@
+<div class="body">
+  <div class="shop-space-product">
+    <mat-drawer-container class="example-container sidenav">
+      <mat-drawer [(opened)] = opened class="sidenav-left" mode="side" opened>
+        <div class="inside-sidenav-left">
+          <p class="p-header">Lọc sản phẩm</p>
+          <ul class="menu-category">
+            <li class="item-menu">
+              <p>Thể loại sản phẩm</p>
+              <div class="hidden-section">
+                <ul class="hidden-section-menu">
+                  <li class="hiddensection-item" (click)="HandleGet(category)" *ngFor="let category of ListCategory"><i class="fa-solid fa-shoe-prints"></i> {{category.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li class="item-menu">
+              <p>Nhãn hàng sản phẩm</p>
+              <div class="hidden-section">
+                <ul class="hidden-section-menu">
+                  <li class="hiddensection-item" *ngFor="let brand of listbrand" (click)="HandleGetByBrand(brand)">{{brand}}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content class="sidenav-right">
+        <div class="inside-sidenav-right">
+          <div class="header-space-all-product">
+            <button (click)="opened=!opened"><i class="fa-solid fa-bars icon-sidebar"></i></button>
+            <button (click)="opened=!opened"><i class="fa-regular fa-circle-xmark icon icon-arrow hidden"></i></button>
+            <span class="title-space-product"><span class="cursor-pointer" (click)="getProduct()">Tất cả sản phẩm / </span>{{title}}</span>
+          </div>
+          <div class="space-display-product">
+            <div class="product" *ngFor="let product of ListProduct">
+              <img class="img-product" src="{{product.imageURL}}" alt="">
+              <div class="info-product">
+                <p class="name-product">{{product.name}}</p>
+                <p class="brand">Brand: {{product.brand}}</p>
+                <p class="price">Price: {{product.displayPrice}}</p>
+                <p class="size">Size: {{product.size}}</p>
+                <p class="size">Available: {{product.quantityAvailable}}</p>
+              </div>
+              <div class="model-btn">
+                <button class="btn-handle btn-add-product" (click)="openDialogAdd(product)"><i class="fa-solid fa-plus"></i></button>
+                <button class="btn-handle btn-watch-detail" (click)="openDialogAdd(product)"><i class="fa-solid fa-circle-info"></i></button>
+              </div>
+            </div>
+
+          </div>
+          <div class="nothing text-3xl text-center mt-20" *ngIf="isnothing">Không có sản phẩm nào để hiển thị <i class="fa-regular fa-face-sad-tear"></i></div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+<div class="body">
+  <div class="space-payment">
+    <div class="content-left">
+      <div class="inside-content-left">
+        <p class="title-content-letft">Thông tin nhận hàng</p>
+        <form class="form-info-tranfer" name="forminfo">
+          <input [autofocus]="true" [required] name="infoRecipient" class="select-element infoRecipient" type="text" placeholder="Người nhận...">
+          <input required name="phoneNumber" class="select-element phoneNumber" type="text" placeholder="Số điện thoại...">
+          <select class="select-info-city select-element" name="city" id="city" (change)="GetDistrict($event)" >
+            <option [defaultSelected]="true" >--Chọn thành phố--</option>
+            <option value="{{city.code}}" *ngFor="let city of citys">{{city.name}}</option>
+          </select>
+          <select class="select-info-district select-element" name="district" id="district" (change)="GetWard($event)">
+            <option [defaultSelected]="true" value="">--Chọn quận--</option>
+            <option *ngFor="let x of quans?.districts" value="{{x?.code}}">{{x?.name}}</option>
+          </select>
+          <select class="select-info-city select-element" name="ward" id="ward" (change)="GetInfoWard($event)">
+            <option value="">--Chọn xã--</option>
+            <option *ngFor="let ward of wards?.wards" value="{{ward?.code}}">{{ward?.name}}</option>
+          </select>
+          <input required name="addressDetail" class="select-element addressDetail" type="text" placeholder="Địa chỉ cụ thể...">
+        </form>
+      </div>
+    </div>
+    <div class="content-right">
+      <div class="inside-content-right">
+        <p class="title-content-right">Đơn hàng của bạn</p>
+        <div class="over-view">
+          <div class="detail-order" *ngFor="let order of ListOrder">
+            <img class="img-detail-order" src="{{order.imageURL}}" alt="">
+            <span class="name-product-detail-order">{{order.name}}</span>
+            <span class="price-product-detail-order">{{order.displayTotalMoneyOrder}}</span>
+            <span class="quantity-product-order">{{order.quantityOrder}}</span>
+          </div>
+        </div>
+        <div class="total-payment">
+          <span class="mr-8">Tổng cộng: </span>
+          <span class="total-money">{{displayTotalBill}}</span>
+        </div>
+        <div class="group-btn">
+          <button class="btn btn-continue-shop"><a href="shop">Tiếp tục mua sắm</a></button>
+          <button class="btn btn-order" (click)="Book()">Đặt hàng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

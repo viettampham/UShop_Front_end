@@ -1,0 +1,138 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="body">
+  <div class="slider-show">
+    <div class="slides">
+      <input class="ip-radio" type="radio" name="r" id="r1" checked>
+      <input class="ip-radio" type="radio" name="r" id="r2" >
+      <input class="ip-radio" type="radio" name="r" id="r3" >
+      <input class="ip-radio" type="radio" name="r" id="r4" >
+      <div class="group-slide">
+        <div class="slide s1">
+          <img src="http://localhost:1235/banner3.jpg" alt="">
+        </div>
+        <div class="slide s2">
+          <img src="http://localhost:1235/banner2.jpg" alt="">
+        </div>
+        <div class="slide s3">
+          <img src="http://localhost:1235/banner4.jpg" alt="">
+        </div>
+        <div class="slide s4">
+          <img src="https://wallpaper.dog/large/20471101.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="navigation">
+      <label for="r1" class="bar"></label>
+      <label for="r2" class="bar"></label>
+      <label for="r3" class="bar"></label>
+      <label for="r4" class="bar"></label>
+    </div>
+  </div>
+  <div class="section-brand">
+    <div class="section section-1">
+      <div class="brand bran1">
+        <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_1.jpg?1664094665337" alt="">
+        <span class="title-brand" (click)="getNike()">Giày Nike</span>
+      </div>
+      <div class="brand bran2">
+        <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_2.jpg?1664094665337" alt="">
+        <span class="title-brand">Giày Adidas</span>
+      </div>
+    </div>
+    <div class="section section-2">
+      <div class="brand brand3">
+        <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_3.jpg?1664094665337" alt="">
+        <span class="title-brand">Giày Vans</span>
+      </div>
+      <div class="brand brand4">
+        <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_4.jpg?1664094665337" alt="">
+        <span class="title-brand">Dép bánh mì</span>
+      </div>
+      <div class="brand brand5">
+        <img src="https://bizweb.dktcdn.net/100/342/645/themes/701397/assets/banner_project_5.jpg?1664094665337" alt="">
+        <span class="title-brand">Dép Xandal</span>
+      </div>
+    </div>
+  </div>
+  <div class="space-product">
+    <div class="title-content">
+      <div class="text-head">
+        <p class="text-top">SẢN PHẨM NỔI BẬT</p>
+        <p class="text-bottom">Một số sản phẩm của shop</p>
+      </div>
+      <a href="lay-out/shop"><p class="let-store cursor-pointer">Đến cửa hàng <i class="arrow ml-2 fa-solid fa-arrow-right"></i></p></a>
+    </div>
+    <div class="products">
+      <div class="product" *ngFor="let product of ListProductDisplay">
+        <div class="frame-img">
+          <img class="img-product" src="{{product.imageURL}}" (click)="ODVproduct(product)" alt="sp1">
+        </div>
+        <div class="description">
+          <span class="title-product">{{product.name}}</span>
+          <span class="size"> <span>Size : </span>{{product.size}}</span>
+          <span class="price">{{product.displayPrice}}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="banner-section-1">
+    <div class="head-banner">
+      <img src="http://localhost:1235/banner_product_nangdong.jpg" alt="">
+      <div class="descript">
+        <span class="banner-title">Vans</span>
+        <p class="descript-text">Vans is an American manufacturer of skateboarding shoes and related apparel, established in Anaheim, California, and owned by VF Corporation. The company also sponsors surf, snowboarding, BMX, and motocross teams.[3] From 1996 to 2019, the company was the primary sponsor of the annual Warped Tour music festival.</p>
+        <a href="shop" class="lk-shop">XEM TẤT CẢ <i class="fa-solid fa-chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="content-banner">
+      <div class="products-banner">
+        <div class="product-banner h-full" *ngFor="let product of ListVansDisplay">
+          <div class="about-product">
+            <img style="min-height: 330px; border-radius: 4px" src="{{product.imageURL}}" alt="">
+          </div>
+          <div class="detail-product">
+            <p class="title-product" style="min-height: 50px">{{product.name}}</p>
+            <div class="detail">
+              <span class="price">{{product.displayPrice}}<i class="fa-solid fa-dong-sign"></i></span>
+              <i class="fa-solid fa-circle-info detail-i" (click)="ODVproduct(product)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cicle-animation">
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+    <div class="circle three"></div>
+  </div>
+  <div class="banner-section-2">
+    <div class="head-banner">
+      <div class="descript">
+        <span class="banner-title">Nike</span>
+        <p class="descript-text">Ra đời từ thế kỉ XX, từ sự tiện dụng cho đến biểu tượng của phong cách casual. Giày lười Delta Shoes là một trong những đại diện của sự chững chạc trong thời trang, là xu hướng của thế giới thời trang tối giản. Đồng hành cùng Delta Shoes là đồng hành với chuẩn mực của chính bạn.</p>
+        <a href="shop" class="lk-shop">XEM TẤT CẢ <i class="fa-solid fa-chevron-right"></i></a>
+      </div>
+      <img src="http://localhost:1235/banner_product_thanhlich.jpg" alt="">
+    </div>
+    <div class="content-banner">
+      <div class="products-banner">
+        <div class="product-banner h-full" *ngFor="let product of ListNikeDisplay">
+          <div class="about-product">
+            <img style="min-height: 330px; border-radius: 4px" src="{{product.imageURL}}" alt="">
+          </div>
+          <div class="detail-product">
+            <p class="title-product" style="min-height: 50px">{{product.name}}</p>
+            <div class="detail">
+              <span class="price">{{product.displayPrice}}<i class="fa-solid fa-dong-sign"></i></span>
+              <i class="fa-solid fa-circle-info detail-i" (click)="ODVproduct(product)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

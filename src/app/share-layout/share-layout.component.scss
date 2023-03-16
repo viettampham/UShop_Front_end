@@ -1,0 +1,202 @@
+/*Animation*/
+*{
+  scroll-behavior: smooth;
+  font-family: 'Quicksand', sans-serif;
+  transition: 0.4s;
+}
+@keyframes up {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+@keyframes fall {
+  from{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes circle {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1.2)
+  }
+}
+@keyframes letright {
+  from{
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(30px);
+    opacity: 1;
+
+  }
+}
+.page-layout{
+  .header{
+    @apply px-8 text-white flex flex-row justify-between items-center;
+    background-color: black;
+    border-radius-: 4px;
+    .group-logo{
+      @apply flex flex-row justify-between items-center cursor-pointer;
+      .logo{
+        @apply h-20 w-20 rounded-full ;
+      }
+      .text-logo{
+        @apply text-xl;
+      }
+      .qr-code{
+        @apply w-12 h-12;
+        z-index: 1;
+        &:hover{
+          width: 200px;
+          height: 200px;
+          top: 50px;
+        }
+      }
+    }
+    .group-search{
+      @apply flex flex-row justify-center items-center;
+      width: 45%;
+      /*@apply h-1/2 bg-white text-sm w-2/5 px-3 py-1 rounded-2xl;*/
+      .ip-search{
+        @apply text-base w-full px-5 py-2 text-black bg-white;
+        border-radius: 4px;
+        outline: none;
+      }
+      .icon-search{
+        @apply text-xl;
+        transform: translateX(-62px);
+        background-color: black;
+        padding: 4px 18px;
+        border-radius: 4px;
+        color: white;
+        &:hover{
+          color: black;
+          cursor: pointer;
+          background-color: white;
+          border: 1px solid black;
+        }
+      }
+    }
+    .group-user{
+      @apply text-base flex flex-row justify-between items-center;
+      .item{
+        @apply mx-2 cursor-pointer relative;
+        /*&:hover{
+          border-bottom: 1px solid white;
+        }*/
+        .icon{
+          padding: 8px;
+          border-radius: 40px;
+          &:hover{
+            @apply text-black bg-white
+          }
+        }
+        .indivisual-box{
+          @apply p-5;
+          border: 2px dashed #74b9ff;
+          border-radius: 4px;
+          background-color: white;
+          color: #636e72;
+          position: absolute;
+          z-index: 2;
+          top: 100%;
+          right: 0;
+          .item-indivisual{
+            @apply px-2 my-1;
+            &:hover{
+              color: #74b9ff;
+              opacity: 0.5;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .body{
+    min-height: 450px;
+  }
+  .footer{
+    @apply text-white p-5;
+    background-color: #2d3436;
+    .content-footer {
+      @apply gap-5;
+      .information{
+        @apply grid grid-cols-3 gap-5 px-8;
+        .item-info{
+          @apply text-xl py-3 flex flex-col justify-center items-center;
+          .icon{
+            @apply text-5xl my-8;
+            color: #ff7675;
+          }
+          .location-i{
+            position: relative;
+            .icon{
+              @apply text-5xl my-8;
+              color: #ff7675;
+            }
+            ::after{
+              content: "";
+              display: block;
+              width: 50px;
+              height: 30px;
+              border-radius: 50%;
+              border: 4px solid #ff7675;
+              position: absolute;
+              top: 60%;
+              left: -18%;
+              transform: translate(-50%, 20%);
+              animation: circle 1s infinite linear;
+            }
+          }
+
+        }
+      }
+    }
+    .line{
+      @apply mb-3;
+      height: 1px;
+      width: 100%;
+      background-color: white;
+    }
+    .contact{
+      @apply flex flex-row justify-between items-center;
+      .social{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        .item-social{
+          @apply text-2xl text-white mx-1 px-4 py-3 rounded-full cursor-pointer;
+          display: inline-block ;
+          &:hover{
+            color: #2d3436;
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+  .icon-start{
+    @apply px-6 py-4 text-xl text-white;
+    border-radius: 50%;
+    background-color: #ff7675;
+    position: fixed;
+    bottom: 80px;
+    right: 0;
+    cursor: pointer;
+    &:hover .icon{
+      animation: up 0.5s infinite linear;
+    }
+  }
+}

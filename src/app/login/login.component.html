@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="page-layout">
+  <div class="login-layout">
+    <img src="http://localhost:1235/logoshop.jpg" alt="" class="logo">
+    <span class="header">Login</span>
+    <form name="loginform" class="example-form login-form" [formGroup]="LoginForm" (submit)="Login()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input name="username" type="email" matInput placeholder="Enter your email..." formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input name="password" type="password" matInput placeholder="Enter your password..." formControlName="password">
+      </mat-form-field>
+      <button class="btn-login">Sign in</button>
+    </form>
+    <div class="next-layout">
+      <i class="fa-regular fa-plus icon-plus"></i>
+    </div>
+  </div>
+
+  <!--registration layout-->
+  <div class="registration-layout hidden">
+    <img src="http://localhost:1235/logoshop.jpg" alt="" class="logo">
+    <span class="header">Registration</span>
+    <form name="regisform" class="example-form login-form" [formGroup]="SigninForm" (submit)="Signin()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input name="username" type="email" matInput placeholder="Enter your email..." formControlName="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput placeholder="Enter your name..." formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input type="email" matInput placeholder="Enter your address..." formControlName="address">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Enter your password..." formControlName="password">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input type="password" matInput placeholder="Enter your password again..." formControlName="confirmpassword">
+      </mat-form-field>
+      <button class="btn-login">Sign up</button>
+    </form>
+    <div class="next-layout">
+      <i class="fa-solid fa-rotate-left icon-return"></i>
+    </div>
+  </div>
+
+</div>

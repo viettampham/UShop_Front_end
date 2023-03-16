@@ -1,0 +1,70 @@
+/*Animation*/
+*{
+  scroll-behavior: smooth;
+  font-family: 'Quicksand', sans-serif;
+  transition: 0.4s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes up {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+@keyframes fall {
+  from{
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes circle {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1.2)
+  }
+}
+@keyframes letright {
+  from{
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(30px);
+    opacity: 1;
+
+  }
+}
+.body{
+  @apply min-h-screen;
+  .menubill{
+    @apply flex flex-row justify-between items-center;
+    .title{
+      @apply text-2xl my-5 px-12 cursor-pointer;
+    }
+  }
+  .listBill{
+    @apply px-12 grid grid-cols-3 gap-5;
+    .bill{
+      @apply p-4 flex flex-col justify-between;
+      border-radius: 4px;
+      color: white;
+    }
+    height: 200px;
+    .btn-detailbill{
+      border-radius: 4px;
+      background-color: #fab1a0;
+      color: white;
+      @apply py-2;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="body">
+  <div class="" *ngIf="nothingPage">
+    <div style="margin-top: 20%;" class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage">Không có mục nào để hiển thị</div>
+    <div class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage"><i class="fa-regular fa-face-tired"></i></div>
+  </div>
+  <div *ngIf="!nothingPage" class="space-cart">
+    <p class="header-space-cart">Giỏ hàng của bạn</p>
+    <table class="table-cart-product">
+      <tr class="title-table">
+        <th class="col-product text-left col-span-4">Sản phẩm</th>
+        <th class="col-price-product col-span-2">Giá</th>
+        <th class="col-quantity-product col-span-2">Số lượng</th>
+        <th class="col-money-product col-span-2">Thành tiền</th>
+      </tr>
+      <tr class="item-table" *ngFor="let order of ListOrder">
+        <td class="col-product col-span-4">
+          <img class="img" src="{{order.imageURL}}" alt="">
+          <div class="flex flex-col justify-center items-start">
+            <span class="name-product">{{order.name}}</span>
+            <button class="btn-bin mt-2 text-red-400" (click)="DeleteOrderByID(order.orderID)"><i class="i-bin mx-2 text-base fa-regular fa-trash-can"></i>xóa sản phẩm</button>
+          </div>
+        </td>
+        <td class="col-price-product col-span-2 flex justify-center items-center">{{order.displayPrice}}</td>
+        <td class="col-quantity-product col-span-2">
+          <div class="group-change-quantity">
+            <!--<button class="btn-change-quantity minus">-</button>-->
+            <span class="display-num">{{order.quantityOrder}}</span>
+            <!--<button class="btn-change-quantity plus">+</button>-->
+          </div>
+        </td>
+        <td class="col-money-product col-span-2 flex justify-center items-center">{{order.displayTotalMoneyOrder}}</td>
+      </tr>
+    </table>
+    <div class="group-total-money">
+      <span class="title-total">Tổng tiền:</span>
+      <span class="total-money">{{disPlayTotalCart}}</span>
+    </div>
+    <div class="group-btn">
+      <button class="btn btn-continue-shop"><a href="lay-out/shop"><i class="fa-solid fa-cart-plus"></i> Tiếp tục mua sắm</a></button>
+      <button class="btn btn-payment" (click)="hanleCreateBill()">Đặt hàng</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.body{
+  @apply p-8;
+  background-color: #2d3436;
+  .main-content{
+    @apply rounded-2xl;
+    padding: 16px 5%;
+    background-color: white;
+    .title-content{
+      @apply text-2xl text-center font-extralight pt-5;
+      letter-spacing: 4px;
+    }
+    .lk-content{
+      @apply text-xl py-2;
+    }
+    .content{
+      @apply pb-5 leading-8;
+    }
+    .about{
+      @apply grid grid-cols-4 gap-5;
+      .about-content{
+        @apply flex flex-row justify-center items-center;
+        .text{
+          @apply flex flex-col ml-2;
+          .text-top{
+            @apply font-semibold text-lg;
+          }
+        }
+      }
+    }
+  }
+}

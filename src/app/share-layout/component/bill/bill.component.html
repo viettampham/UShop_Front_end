@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="body">
+  <div class="menubill">
+    <p class="title" (click)="GetAllNoPayed()">Hóa đơn chưa thanh toán</p>
+    <p class="title" (click)="GetAllPayed()">Lịch sử mua hàng</p>
+  </div>
+  <div style="margin-top: 20%;" class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage">Không có mục nào để hiển thị</div>
+
+  <div class="listBill">
+    <div class="bill" style="background-color: {{randomColor()}}" *ngFor="let bill of ListBill">
+      <div class="span">Tên người nhận : {{bill.nameCustomer}}</div>
+      <div class="span">Địa chỉ giao hàng : {{bill.addressTranfer}}</div>
+      <div class="span">Địa chỉ cụ thể : {{bill.addressDetail}}</div>
+      <div class="span">Tổng tiền : {{bill.displayTotalBill}}</div>
+      <button class="btn-detailbill" (click)="ViewDetailBill(bill)">Xem chi tiết</button>
+    </div>
+  </div>
+</div>
