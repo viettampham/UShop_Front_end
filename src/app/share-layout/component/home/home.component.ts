@@ -30,31 +30,28 @@ export class HomeComponent implements OnInit {
     const tokenObj = this.token();
     var userID = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'];
     var displayname = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-    //console.log(tokenObj)
-    //console.log(userID)
-    //.log(displayname)
-    this.displayname = displayname
     this.api.GetProduct().subscribe(res=>{
       this.ListProduct = res
-      this.ListProduct.forEach(p=>{
-        p.displayPrice = p.price.toLocaleString('vi',{style:'currency',currency:'VND'})
-        if (p.brand == "Vans"){
-          this.ListVans.push(p)
+      this.ListProduct.forEach(x=>{
+        if (x.brand == "NIKE"){
+          this.ListNike.push(x)
         }
-        if (p.brand == "Nike"){
-          this.ListNike.push(p)
+        if (x.brand == "VANS"){
+          this.ListVans.push(x)
         }
       })
-      for (var i = 0;i<4;i++){
-        this.ListProductDisplay.push(this.ListProduct[i]);
+      for (let i = 0; i < 4; i++) {
+        this.ListProductDisplay.push(this.ListProduct[i])
       }
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         this.ListVansDisplay.push(this.ListVans[i])
       }
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         this.ListNikeDisplay.push(this.ListNike[i])
       }
     })
+    console.log(this.ListNikeDisplay)
+
   }
 
   public token = () => {
@@ -67,17 +64,23 @@ export class HomeComponent implements OnInit {
   displayname: any;
   isClick = true;
 
+  getProduct(){
+    this.api.GetProduct().subscribe(res=>{
+      this.ListProduct = res
+      //console.log(res)
+    })
+  }
 
-  getNike() {
+  /*getNike() {
     this.route.navigate(['/shop'])
     //console.log(this.ListProduct)
     this.ListProduct.forEach(p=>{
-      if (p.brand == 'Nike'){
+      if (p.brand == 'NIKE'){
         this.ListProductTarget.push(p)
       }
     })
-    //console.log(this.ListProductTarget)
-  }
+    console.log(this.ListProductTarget)
+  }*/
 
   ODVproduct(product : any) {
     this.dialog.open(DialogDetailProductComponent,{

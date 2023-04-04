@@ -10,6 +10,7 @@ import {CreateOrderRequest} from "../../Models/RequestModels/CreateOrderRequest"
 import {Order} from "../../Models/Order";
 import {CreateBillRequest} from "../../Models/RequestModels/CreateBillRequest";
 import {Bill} from "../../Models/Bill";
+import {TypeProduct} from "../../Models/TypeProduct";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,8 @@ export class ApiService {
   GetProduct = () =>this.httpCLient.get<Product[]>(`${environment.api_domain}/Product/get-product`);
   GetBrand = () => this.httpCLient.get<string[]>(`${environment.api_domain}/Product/get-brand`);
   GetCategoryProduct = () => this.httpCLient.get<Category[]>(`${environment.api_domain}/Category/get-category`);
+  GetTypeProduct = () => this.httpCLient.get<any>(`${environment.api_domain}/TypeProduct/get`);
+  GetProductByType = (id:string) => this.httpCLient.get<any>(`${environment.api_domain}/Product/get-product-by-type/${id}`,)
   CreateOrder = (request:CreateOrderRequest) => this.httpCLient.post<Order>(`${environment.api_domain}/OrderControlle/add-order`,request);
   GetOrder = () => this.httpCLient.get<Order[]>(`${environment.api_domain}/OrderDetail/get-list-order`);
   //get viet nam

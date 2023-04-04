@@ -21,6 +21,16 @@
                 </ul>
               </div>
             </li>
+            <li class="item-menu">
+              <p>Loại sản phẩm</p>
+              <div class="hidden-section">
+                <ul class="hidden-section-menu">
+                  <li class="hiddensection-item" *ngFor="let typeProduct of listTypeProduct" (click)="GetProductByType(typeProduct)">
+                    {{typeProduct.name}}
+                  </li>
+                </ul>
+              </div>
+            </li>
           </ul>
         </div>
       </mat-drawer>
@@ -36,10 +46,10 @@
               <img class="img-product" src="{{product.imageURL}}" alt="">
               <div class="info-product">
                 <p class="name-product">{{product.name}}</p>
-                <p class="brand">Brand: {{product.brand}}</p>
-                <p class="price">Price: {{product.displayPrice}}</p>
-                <p class="size">Size: {{product.size}}</p>
-                <p class="size">Available: {{product.quantityAvailable}}</p>
+                <p class="brand">Nhãn hàng: {{product.brand}}</p>
+                <p class="price">Giá: {{product.displayPrice}}</p>
+                <p class="size">Kích cỡ: {{product.size}}</p>
+                <p class="size">Có sẵn: {{product.quantityAvailable}}</p>
               </div>
               <div class="model-btn">
                 <button class="btn-handle btn-add-product" (click)="openDialogAdd(product)"><i class="fa-solid fa-plus"></i></button>

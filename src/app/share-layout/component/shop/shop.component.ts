@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {Category} from "../../../../Models/Category";
 import {Product} from "../../../../Models/Product";
 import {DialogDetailProductComponent} from "../../../dialog/dialog-detail-product/dialog-detail-product.component";
+import {TypeProduct} from "../../../../Models/TypeProduct";
 
 @Component({
   selector: 'app-shop',
@@ -17,6 +18,7 @@ export class ShopComponent implements OnInit {
   ListProduct: Product[] = [];
   ListCategory: Category[]= [];
   listbrand: string[] = [];
+  listTypeProduct: TypeProduct[] = [];
   title = '';
   constructor(private dialog:MatDialog,
               private api:ApiService,
@@ -26,6 +28,7 @@ export class ShopComponent implements OnInit {
     this.getProduct();
     this.getCategory();
     this.getBrand();
+    this.getTypeProduct();
     const iFiller = document.querySelector('.icon-sidebar');
     const iArrow = document.querySelector('.icon-arrow');
 
@@ -79,6 +82,13 @@ export class ShopComponent implements OnInit {
     })
   }
 
+  getTypeProduct(){
+    this.api.GetTypeProduct().subscribe(res=>{
+      this.listTypeProduct = res
+      //console.log(this.listTypeProduct)
+    })
+  }
+
   isLoadding = false;
   isnothing = false;
 
@@ -101,6 +111,15 @@ export class ShopComponent implements OnInit {
   openDialogAdd(product: Product) {
     this.dialog.open(DialogDetailProductComponent,{
       data:product
+    })
+  }
+
+
+  GetProductByType(typeProduct: TypeProduct) {
+    this.title = typeProduct.name
+    this.api.GetProductByType(typeProduct.id).subscribe(res=>{
+      this.ListProduct = res
+      console.log(this.ListProduct)
     })
   }
 }

@@ -89,7 +89,7 @@
       }
     }
     .group-user{
-      @apply text-base flex flex-row justify-between items-center;
+      @apply text-base hidden md:flex flex-row justify-between items-center;
       .item{
         @apply mx-2 cursor-pointer relative;
         /*&:hover{
@@ -124,6 +124,9 @@
       }
     }
   }
+  .mobi-sidebar{
+
+  }
   .body{
     min-height: 450px;
   }
@@ -133,7 +136,7 @@
     .content-footer {
       @apply gap-5;
       .information{
-        @apply grid grid-cols-3 gap-5 px-8;
+        @apply grid lg:grid-cols-3 gap-5 lg:px-8;
         .item-info{
           @apply text-xl py-3 flex flex-col justify-center items-center;
           .icon{
@@ -171,7 +174,7 @@
       background-color: white;
     }
     .contact{
-      @apply flex flex-row justify-between items-center;
+      @apply lg:flex flex-row justify-between items-center;
       .social{
         display: flex;
         flex-direction: row;

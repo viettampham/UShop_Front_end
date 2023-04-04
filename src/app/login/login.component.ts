@@ -100,9 +100,8 @@ export class LoginComponent implements OnInit {
     if (this.SigninForm.value.confirmpassword == this.SigninForm.value.password && this.LoginForm.value.username != null){
       this.apiServices.Signin(this.SigninForm.value as RegistrationRequest).subscribe(res=>{
         alert("Đăng kí tài khoản thành công")
-        this.route.navigate(['login'])
+        location.reload()
       })
     }
   }
-
 }

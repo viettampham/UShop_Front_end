@@ -2,11 +2,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 <div class="page-layout">
   <div id="headpage" class="header">
-
     <div class="group-logo">
-      <img class="qr-code" src="http://localhost:1235/QR.png" alt="">
+      <img class="qr-code hidden md:block" src="http://localhost:1235/QR.png" alt="">
       <img src="http://localhost:1235/logoshop.jpg" alt="" class="logo">
-      <span class="text-logo">ShoeStore</span>
+      <span class="text-logo">UShop</span>
     </div>
     <ul class="group-user">
       <li class="item"><a href="lay-out/home">Trang chủ</a></li>
@@ -32,7 +31,18 @@
           </ul>
         </div>
       </li>
-
+    </ul>
+  </div>
+  <div class="mobi-sidebar md:hidden flex flex-col px-2 py-2">
+    <ul class="group-user">
+      <li class="item inline-block mx-2"><a href="lay-out/home">Trang chủ</a></li>
+      <li class="item inline-block mx-2"><a href="lay-out/shop">Cửa hàng</a></li>
+      <li class="item inline-block mx-2"><a href="lay-out/intro">Giới thiệu</a></li>
+    </ul>
+    <ul class="group-user ">
+      <li class="item inline-block mx-2"><a href="lay-out/intro">Giỏ hàng</a></li>
+      <li class="item inline-block mx-2"><a href="lay-out/intro">Hóa đơn</a></li>
+      <li class="item inline-block mx-2"><a href="lay-out/intro">Tài khoản</a></li>
     </ul>
   </div>
   <div class="body">

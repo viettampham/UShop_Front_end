@@ -2,13 +2,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 <div class="body">
   <div class="menubill">
-    <p class="title" (click)="GetAllNoPayed()">Hóa đơn chưa thanh toán</p>
-    <p class="title" (click)="GetAllPayed()">Lịch sử mua hàng</p>
+    <p class="title" (click)="GetAllNoPayed()"
+       style="background-color: #2d3436;
+       padding: 8px 16px;
+      color: white;
+      border-radius: 8px;
+      margin: 8px;">Hóa đơn chưa thanh toán</p>
+    <p class="title" (click)="GetAllPayed()"
+       style="background-color: #74b9ff;
+      padding: 8px 16px;
+      color: white;
+      border-radius: 8px;
+      margin: 8px;">Lịch sử mua hàng</p>
   </div>
   <div style="margin-top: 20%;" class="text-red-400 text-3xl w-full text-center" *ngIf="nothingPage">Không có mục nào để hiển thị</div>
 
   <div class="listBill">
     <div class="bill" style="background-color: {{randomColor()}}" *ngFor="let bill of ListBill">
+      <div class="span">Khách hàng : {{bill.fullNameUser}}</div>
+      <div class="span">Ngày đặt hàng : {{bill.dateCreated}}</div>
       <div class="span">Tên người nhận : {{bill.nameCustomer}}</div>
       <div class="span">Địa chỉ giao hàng : {{bill.addressTranfer}}</div>
       <div class="span">Địa chỉ cụ thể : {{bill.addressDetail}}</div>
